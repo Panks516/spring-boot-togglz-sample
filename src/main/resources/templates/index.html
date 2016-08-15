@@ -8,8 +8,15 @@
 	<h1>User Story manager</h1>
 	<h2>Features</h2>
 	<ul>
+		<!-- provide feature by MAV attribute -->
 		<li>JIRA Export: <span
 			th:text="${enable_jira_export} ? 'Yes' : 'No'"></span></li>
+		<!-- provide feature by using thmyeleaf-extras-togglz -->
+		<li>Cost view: <span
+			togglz:active='COST_IS_VIEWABLE'>Yes</span>
+			<!-- togglz:inactive is not documented but implemented -->
+			<span
+			togglz:inactive='COST_IS_VIEWABLE'>No</span></li>
 	</ul>
 
 	<h2>User Stories</h2>

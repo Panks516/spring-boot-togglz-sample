@@ -8,6 +8,8 @@ import org.togglz.core.spi.FeatureProvider;
 import org.togglz.core.user.NoOpUserProvider;
 import org.togglz.core.user.UserProvider;
 
+import com.github.heneke.thymeleaf.togglz.TogglzDialect;
+
 import de.schakko.samples.spring.boot.togglz.business.UserStoryFeature;
 
 @SpringBootApplication(scanBasePackageClasses = Application.class)
@@ -20,9 +22,19 @@ public class Application {
 	public FeatureProvider featureProvider() {
 		return new EnumBasedFeatureProvider(UserStoryFeature.class);
 	}
-	
+
 	@Bean
 	public UserProvider userProvider() {
 		return new NoOpUserProvider();
+	}
+
+	/**
+	 * Enable custom Thymeleaf dialect to provide togglz:active/togglz:inactive
+	 * 
+	 * @return
+	 */
+	@Bean
+	public TogglzDialect togglzDialect() {
+		return new TogglzDialect();
 	}
 }
