@@ -6,6 +6,8 @@
 </head>
 <body>
 	<h1>User Story manager</h1>
+	<a href="/togglz-console" target="__blank">Open togglz console</a>
+	
 	<h2>Features</h2>
 	<ul>
 		<!-- provide feature by MAV attribute -->
@@ -23,9 +25,9 @@
 
 	<h2>User Stories</h2>
 	<ul>
-		<li th:each="story : ${stories}" th:text="${story.content}">${story.content}
+		<li th:each="story : ${stories}"><span th:text="${story.content}"></span>
 			<!-- as you can see, togglz:active makes it easy to implement a new feature -->
-			<span togglz:active='COST_IS_VIEWABLE' th:text="${story.cost}">${story.cost}</span>
+			<span togglz:active='COST_IS_VIEWABLE' th:text="'with costs of € ' + ${story.cost}">${story.cost} </span>
 			<a href="#" togglz:active='COST_IS_EDITABLE'>Edit cost</a>
 		</li>
 	</ul>
