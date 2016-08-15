@@ -11,6 +11,15 @@ Togglz can be easily integrated into JSF or Spring Boot application.
 ## About this sample
 This sample contains a very simple Spring Boot web application showing user stories and their costs. The source code is documented so you can dig through it.
 
+### Run
+Open your command line and type
+
+	mvn spring-boot:run
+
+and go to 
+	
+	http://localhost:8080
+
 ### Features
 Features can be defined in different ways. I use enumerations which can be found in the `UserStoryFeature` class.
 The features are registered by using the 
