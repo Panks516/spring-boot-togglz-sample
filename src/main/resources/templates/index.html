@@ -12,16 +12,22 @@
 		<li>JIRA Export: <span
 			th:text="${enable_jira_export} ? 'Yes' : 'No'"></span></li>
 		<!-- provide feature by using thmyeleaf-extras-togglz -->
-		<li>Cost view: <span
-			togglz:active='COST_IS_VIEWABLE'>Yes</span>
-			<!-- togglz:inactive is not documented but implemented -->
-			<span
+		<li>Cost view: <span togglz:active='COST_IS_VIEWABLE'>Yes</span>
+			<!-- togglz:inactive is not documented but implemented --> <span
 			togglz:inactive='COST_IS_VIEWABLE'>No</span></li>
+		<!-- access feature by using FQDN. spend more characters! -->
+		<li>Cost edit: <span
+			th:text="${T(de.schakko.samples.spring.boot.togglz.business.UserStoryFeature).COST_IS_EDITABLE.isActive() == true} ? 'Yes' : 'No'"></span>
+		</li>
 	</ul>
 
 	<h2>User Stories</h2>
 	<ul>
-		<li th:each="story : ${stories}" th:text="${story.content}">${story.content}</li>
+		<li th:each="story : ${stories}" th:text="${story.content}">${story.content}
+			<!-- as you can see, togglz:active makes it easy to implement a new feature -->
+			<span togglz:active='COST_IS_VIEWABLE' th:text="${story.cost}">${story.cost}</span>
+			<a href="#" togglz:active='COST_IS_EDITABLE'>Edit cost</a>
+		</li>
 	</ul>
 </body>
 </html>
