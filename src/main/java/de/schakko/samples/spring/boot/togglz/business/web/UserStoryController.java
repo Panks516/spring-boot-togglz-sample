@@ -14,13 +14,16 @@ public class UserStoryController {
 
 	public UserStoryController(UserStoryRepository userStoryRepository) {
 		Assert.notNull(userStoryRepository, "userStoryRepository must not be null");
+		
 		this.userStoryRepository = userStoryRepository;
 	}
 
 	@RequestMapping("/")
 	public ModelAndView index() {
 		ModelAndView r = new ModelAndView("index");
+		
 		r.addObject("stories", this.userStoryRepository.findAll());
+		// assign the Thymeleaf variable "enable_jira_export" to the feature state
 		r.addObject("enable_jira_export", UserStoryFeature.EXPORT_TO_JIRA.isActive());
 		
 		return r;

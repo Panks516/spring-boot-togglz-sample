@@ -68,14 +68,6 @@
 			<artifactId>thymeleaf-extras-springsecurity4</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.fasterxml.jackson.datatype</groupId>
-			<artifactId>jackson-datatype-joda</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.datatype</groupId>
-			<artifactId>jackson-datatype-jsr310</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>com.github.heneke.thymeleaf</groupId>
 			<artifactId>thymeleaf-extras-togglz</artifactId>
 			<version>1.0.1.RELEASE</version>
